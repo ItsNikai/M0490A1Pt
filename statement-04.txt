@@ -1,0 +1,16 @@
+2025-04-01 09:00:00 | DEPOSIT   | NÒMINA               |   +1800.00 €
+2025-04-01 09:00:00 | WITHDRAW  | LLOGUER              |    -800.00 €
+2025-04-01 09:00:00 | WITHDRAW  | INTERNET             |     -50.00 €
+2025-04-01 09:00:00 | WITHDRAW  | ASSEGURANÇA LLAR     |     -30.00 €
+2025-04-01 09:00:00 | WITHDRAW  | AIGUA                |     -45.00 €
+2025-04-01 09:00:00 | WITHDRAW  | LLUM                 |     -35.00 €
+2025-04-05 11:11:22 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-04-05 18:32:44 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-04-12 17:15:02 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-04-12 19:01:54 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-04-14 20:22:48 | WITHDRAW  | BENZINERA            |     -50.00 €
+2025-04-19 10:25:13 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-04-19 18:17:02 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-04-26 11:52:42 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-04-26 17:36:19 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-04-27 21:14:22 | WITHDRAW  | CINEMA               |     -20.00 €

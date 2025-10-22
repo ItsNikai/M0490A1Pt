@@ -1,0 +1,17 @@
+2025-12-01 09:00:00 | DEPOSIT   | NÒMINA               |   +1800.00 €
+2025-12-01 09:00:00 | WITHDRAW  | LLOGUER              |    -800.00 €
+2025-12-01 09:00:00 | WITHDRAW  | INTERNET             |     -50.00 €
+2025-12-01 09:00:00 | WITHDRAW  | ASSEGURANÇA LLAR     |     -30.00 €
+2025-12-01 09:00:00 | WITHDRAW  | AIGUA                |     -45.00 €
+2025-12-01 09:00:00 | WITHDRAW  | LLUM                 |     -35.00 €
+2025-12-06 11:35:22 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-12-06 18:15:10 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-12-08 20:11:33 | WITHDRAW  | BENZINERA            |     -50.00 €
+2025-12-13 17:25:59 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-12-13 19:00:12 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-12-20 10:55:27 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-12-20 17:40:41 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-12-24 21:11:12 | WITHDRAW  | ROBA                 |     -90.00 €
+2025-12-27 11:10:15 | WITHDRAW  | SUPERMERCAT          |    -120.00 €
+2025-12-27 18:20:44 | WITHDRAW  | COMPRES              |     -60.00 €
+2025-12-31 20:55:32 | WITHDRAW  | CINEMA               |     -20.00 €
