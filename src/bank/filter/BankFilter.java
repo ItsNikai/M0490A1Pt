@@ -1,6 +1,7 @@
 package bank.filter;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,26 +30,34 @@ public class BankFilter {
 	 * IMPORTANT: All pipelines must run in parallel. Do not wait for one to finish
 	 * before starting the next.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// Here we store all the last processes of the pipeline in order to get their
 		// outputs later
 		List<Process> lastPipelineProcesses = new ArrayList<>();
 
-		// TODO: For each month (1 to 12), build the pipeline
+		// For each month (1 to 12), build the pipeline
 		for (int month = 1; month <= MONTHS; month++) {
 			String fileName = String.format("%s%02d%s", STATEMENT_PREFIX, month, STATEMENT_SUFFIX);
+			File inputFile = new File(fileName);
 
-			// TODO: Create a list of ProcessBuilders representing the pipeline
+			// Create a list of ProcessBuilders representing the pipeline
 			List<ProcessBuilder> pipelineProcessBuilders = new ArrayList<>();
+			for (String[] command : PIPE_LINE) {
+				pipelineProcessBuilders.add(new ProcessBuilder(command));
+			}
 
-			// TODO: Configure first process builder to get input from his corresponding
+			// Configure first process builder to get input from his corresponding
 			// fileName
+			
+			// pipelineProcessBuilders.get(0) = llama al primer proceso, .redirectInput(inputFile) = redirige la entrada
+			
+			pipelineProcessBuilders.get(0).redirectInput(inputFile);
 
-			// TODO: Start the pipeline and collect the all processes (replace null
+			// Start the pipeline and collect the all processes (replace null
 			// initialization)
-			List<Process> pipelineProcesses = null;
-
-			// TODO: Store the last process of the pipeline (needed to collect the final
+			List<Process> pipelineProcesses = ProcessBuilder.startPipeline(pipelineProcessBuilders);	
+			
+			// Store the last process of the pipeline (needed to collect the final
 			// output)
 			Process lastPipelineProcess = pipelineProcesses.get(pipelineProcesses.size() - 1);
 
