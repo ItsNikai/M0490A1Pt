@@ -1,14 +1,16 @@
 package bank.filter;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BankFilter {
 
 	// Name of the filter class to be executed in the pipeline
-	private static final String FILTER_CLASS = bank.filter.StatementFilter.class.getName();
+	private static final String FILTER_CLASS = "bank.filter.StatementFilter";
 
 	// Commands of the pipeline (first filter and second filter)
 	private static final String[] COMMAND_1 = { "java", "-Duser.dir=bin", FILTER_CLASS, "amount", "-gt", "100" };
@@ -48,15 +50,16 @@ public class BankFilter {
 
 			// Configure first process builder to get input from his corresponding
 			// fileName
-			
-			// pipelineProcessBuilders.get(0) = llama al primer proceso, .redirectInput(inputFile) = redirige la entrada
-			
+
+			// pipelineProcessBuilders.get(0) = llama al primer proceso,
+			// .redirectInput(inputFile) = redirige la entrada
+
 			pipelineProcessBuilders.get(0).redirectInput(inputFile);
 
 			// Start the pipeline and collect the all processes (replace null
 			// initialization)
-			List<Process> pipelineProcesses = ProcessBuilder.startPipeline(pipelineProcessBuilders);	
-			
+			List<Process> pipelineProcesses = ProcessBuilder.startPipeline(pipelineProcessBuilders);
+
 			// Store the last process of the pipeline (needed to collect the final
 			// output)
 			Process lastPipelineProcess = pipelineProcesses.get(pipelineProcesses.size() - 1);
@@ -66,6 +69,20 @@ public class BankFilter {
 
 		// TODO: Collect the output of all pipelines in order, appending to OUTPUT_FILE
 		// (hint: use FileOutputStream with append = true)
+
+		try (FileOutputStream fos = new FileOutputStream(OUTPUT_FILE, true)) {
+			for (Process process : lastPipelineProcesses) {
+				try (InputStream is = process.getInputStream()) {
+					byte[] buffer = new byte[1024];
+					int bytesRead;
+					while ((bytesRead = is.read(buffer)) != -1) {
+						fos.write(buffer, 0, bytesRead);
+					}
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		System.exit(0);
 	}
